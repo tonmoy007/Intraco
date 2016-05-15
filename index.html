@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Intraco | Home</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Agency Portfolio" name="type"/>
+    <meta content="Intraco" name="Agency"/>
+    <meta name="author" content="Md Saddam Hossain" />
+
+    <link rel="shortcut icon" href="img/favicon.png"> 
+    <link href="css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="css/animate.css" rel="stylesheet"> 
+    <link href="css/flat-ui.min.css" rel="stylesheet">
+    <link href="css/slider-style.css" rel="stylesheet">
+    <link href="http://vjs.zencdn.net/5.9.2/video-js.css" rel="stylesheet"> 
+    <link href="css/home.css" rel="stylesheet"> 
+    
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/jquery.cslider.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/flat-ui.min.js"></script>
+    <script src="js/intraco.home.js"></script>
+    <script src="js/modernizr.js"></script>
+    <script src="http://vjs.zencdn.net/5.9.2/video.js"></script>
+        
+</head>
+<body ng-app="homeApp" ng-controller="homeCtrl">
+<div class="header" id="header">
+       <div class="head container">
+           <div class="logo bounceIn wow">
+               <a href=""><img class="img-responsive" src="img/logo-s.png" alt="">
+           </a>
+           </div>
+           <loading></loading>
+        <div class="navi">
+            <navigation ></navigation>
+        </div>
+       
+       </div>
+       
+</div>
+<div class="main-div">
+    <div class="container " ng-show="sliderShow">
+        <section class="slide-section" >
+            <slider ></slider>
+        </section>
+        <section class="wow slideBottom" data-wow-duration=".3s" data-wow-delay=".3s">
+            <intraco-video ></intraco-video>
+        </section>
+        <section class="feed wow fadeIn">
+            <div class="row">
+                <div class="col-md-6">
+                    <news-feed></news-feed>
+                </div>
+                <div class="col-md-6">
+                    <speech></speech> 
+                </div>
+            </div>
+               
+        </section>
+
+        <section class="bussiness-segments">
+            <bussiness-segments></bussiness-segments>
+        </section>
+
+    </div>
+
+</div>
+<div class="footer">
+  
+</div>
+</body>
+</html>
