@@ -1,0 +1,32 @@
+<div class="segments">
+    <div class="section-heading cool-shadow wow slideInUp" data-wow-duration=".6s" data-wow-delay=".2s">
+        <span>Business Segments</span>
+    </div>
+    
+
+    <div class="segments-slider wow slideInUp" data-wow-duration=".6s" data-wow-delay=".3s">
+    <carousel id="carousel" interval="myInterval">
+          <slide class="slide  wow" ng-repeat="(key,slide) in mySlide"   >
+            
+              <img ng-src="{{slide.image}}" class=" top img-responsive">
+              <div class="slider-overlay"> <a href="{{slide.href}}"><i class="fa fa-search"></i></a></div>
+              <div class="description">
+                  <h1 class="desc-head">Butterfly Garden</h1>
+                  <p class="lead module pfade">
+                      In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Etiam iaculis nunc ac metus. Quisque malesuada placerat nisl.
+                  </p>
+              </div>
+              <img ng-src="{{slide.image}}" class=" bottom img-responsive">
+          </slide>
+    </carousel>
+    <div class="nav-circlepop">
+        <a class="prev" href="" ng-class="{disabled:!prevAvailabel}" ng-click="previous(index,true)">
+            <span class="icon-wrap"></span>
+        </a>
+        <a class="next" href="" ng-click="next(index,true)">
+            <span class="icon-wrap"></span>
+        </a>
+    </div>
+    </div>
+    
+</div>

@@ -10,6 +10,7 @@
 
     <link rel="shortcut icon" href="img/favicon.png"> 
     <link href="css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="css/bussiness-segments-slider.css" rel="stylesheet">  
     <link href="css/animate.css" rel="stylesheet"> 
     <link href="css/flat-ui.min.css" rel="stylesheet">
     <link href="css/slider-style.css" rel="stylesheet">
@@ -19,6 +20,11 @@
     <script src="js/jquery-2.1.1.js"></script>
     <script src="js/jquery.cslider.js"></script>
     <script src="js/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.4/angular-animate.min.js"></script>
+
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="js/myMap.js"></script>
+    
     <script src="js/wow.min.js"></script>
     <script src="js/flat-ui.min.js"></script>
     <script src="js/intraco.home.js"></script>
@@ -30,14 +36,16 @@
 <div class="header" id="header">
        <div class="head container">
            <div class="logo bounceIn wow">
-               <a href=""><img class="img-responsive" src="img/logo-s.png" alt="">
+               <a href=""><img class="img-responsive" src="img/logo-high.png" alt="">
            </a>
            </div>
            <loading></loading>
-        <div class="navi">
+        <div class="navi fixed cool-shadow">
             <navigation ></navigation>
         </div>
-       
+        <div class="navi navi-right cool-shadow">
+            <navigation></navigation>
+        </div>
        </div>
        
 </div>
@@ -46,9 +54,15 @@
         <section class="slide-section" >
             <slider ></slider>
         </section>
-        <section class="wow slideBottom" data-wow-duration=".3s" data-wow-delay=".3s">
+        
+        <section class="bussiness-segments">
+            <bussiness-segments></bussiness-segments>
+        </section>
+        
+        <section class="video-section" >
             <intraco-video ></intraco-video>
         </section>
+        
         <section class="feed wow fadeIn">
             <div class="row">
                 <div class="col-md-6">
@@ -60,16 +74,20 @@
             </div>
                
         </section>
+        
 
-        <section class="bussiness-segments">
-            <bussiness-segments></bussiness-segments>
-        </section>
+        
 
     </div>
+    <section class="contact">
+            <div class="container">
+                <contact></contact>
+            </div>
+        </section>
 
 </div>
-<div class="footer">
-  
+<div class="footer" ng-show="footShow">
+    <intraco-footer></intraco-footer>
 </div>
 </body>
 </html>
