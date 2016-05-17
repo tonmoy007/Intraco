@@ -281,6 +281,14 @@ slide:hover .slider-overlay{
         
     }
 }
+.slide.ng-enter{
+    opacity: 0;
+    animation: my_fadeIn_animation;
+}
+.slide.ng-leave{
+    opacity: 1;
+    animation: my_fade_animation;
+}
 @keyframes my_fade_animation {
   from { opacity:1; }
   to { opacity:0; }
@@ -289,4 +297,13 @@ slide:hover .slider-overlay{
 @-webkit-keyframes my_fade_animation {
   from { opacity:1; }
   to { opacity:0; }
+}
+@keyframes my_fadeIn_animation {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+
+@-webkit-keyframes my_fadeIn_animation {
+  from { opacity:0; }
+  to { opacity:1; }
 }

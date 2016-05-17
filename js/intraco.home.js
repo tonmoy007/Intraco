@@ -1,12 +1,15 @@
 var app=angular.module('homeApp',['ngAnimate']);
 
 app.controller('homeCtrl',function($scope,$http,$timeout,$interval){
+    
+
     $scope.loading=true;
     $scope.navShow=false;
     $scope.sliderShow=false;
     $scope.videoShow=false;
     $scope.navFix=false;
     $scope.slides=slides;
+    $scope.fullslide=slides.length;
     $scope.myInterval=1000;
     $scope.slidesCurrent=[];
     $scope.index=0;
@@ -16,23 +19,23 @@ app.controller('homeCtrl',function($scope,$http,$timeout,$interval){
     var head=angular.element(document.getElementById('header'));
     angular.element(document).ready(function() {
         $interval(function(){
-                index=$scope.index;
-                $scope.next(index,false);
+                i=$scope.index;
+                $scope.next(i,false);
                },6000);
 
-        
-            $scope.loading=false;
-            $scope.navShow=true;
-            $scope.sliderShow=true;
-            $scope.videoShow=true;
-            $scope.contactShow=true;
-            $scope.footShow=true;
-            new WOW().init();
+            
+            
+            $timeout(function(){
+                $scope.siteLoaded=true;
+                $scope.loading=false;
+                new WOW().init();
+            },600)
             
              //console.log(interval);
         
     });
-  
+    
+
 
     $scope.nextSlide=function(index1,index2,index3){
             
@@ -54,7 +57,7 @@ app.controller('homeCtrl',function($scope,$http,$timeout,$interval){
            
 
         }
-    $scope.move=function(index,fromButton=false,previous=false){
+    $scope.move=function(index,fromButton=false){
         
         if(index<$scope.fullslide-2){
         $scope.nextSlide(index,index+1,index+2);
@@ -63,14 +66,9 @@ app.controller('homeCtrl',function($scope,$http,$timeout,$interval){
             }else if(index==$scope.fullslide-1){
                 $scope.nextSlide(index,0,1);
                 $scope.index=0;
-                previous=false;
+                // previous=false;
             }
-            
-            
-            
-            if(!fromButton){
-                $interval.cancel(interval);
-            }
+            // console.log($scope.index);
     }
     $scope.previous=function(ind,fromButton=false){
         
@@ -78,14 +76,18 @@ app.controller('homeCtrl',function($scope,$http,$timeout,$interval){
                 $scope.index--;
                 console.log($scope.index);
                 $scope.move($scope.index,fromButton,true);
+            }else{
+                $scope.prevAvailabel=false;
             }
-            console.log(ind);
+            
         
     }
     $scope.next=function(index,fromButton=false){
         $scope.index++;
-        $scope.move($scope.index,fromButton);
+        
         $scope.prevAvailabel=true;
+        $scope.move($scope.index,fromButton);
+        
     }
     $scope.nextSlide(0,1,2);
     
@@ -106,6 +108,10 @@ app.directive('navigation',function($timeout){
                         elem.parent('.navi').removeClass('adjust-menu');
                     }
         });
+
+            elem.ready(function(){
+                scope.navShow=true;
+            });
     }
 }
 });
@@ -135,7 +141,7 @@ app.directive('slider',function($timeout){
                 // time between transitions
                 
             });
-              
+              scope.sliderShow=true;
 });
         }
     }
@@ -147,7 +153,9 @@ app.directive('intracoVideo',function($timeout){
         replace:true,
         templateUrl:'video.html',
         link:function(scope,elem,attr){
-            
+            elem.ready(function(){
+                scope.videoShow=true;
+            });
         }
     }
 
@@ -173,7 +181,10 @@ app.directive('loading', function ($timeout) {
     return{
         restrict:'EA',
         replace:true,
-        templateUrl:'news-feed.html'
+        templateUrl:'news-feed.html',
+        link:function(scope,elem,attr){
+
+        }
     }
   });
 
@@ -192,10 +203,10 @@ app.directive('bussinessSegments',function($interval){
         templateUrl:'business-segments.html',
         link:function(scope,elem,attr){
             elem.ready(function(){
-               
+               scope.fullslide=scope.slides.length;
                 });
             
-            scope.fullslide=scope.slides.length;
+            
             
             
            
@@ -212,6 +223,7 @@ app.directive('contact',function(){
         link:function($scope,elem,attr){
             elem.ready(function(){
                 plotMap();
+                $scope.contactShow=true;
             })
         }
     }
@@ -222,34 +234,13 @@ app.directive('intracoFooter',function(){
         replace:true,
         templateUrl:'footer.html',
         link:function($scope,elem,attr){
-           
+           elem.ready(function(){
+                $scope.footShow=true;
+           });
         }
     }
 });
-app.animation('.slide', function($timeout) {
-  return {
-    // make note that other events (like addClass/removeClass)
-    // have different function input parameters
-    enter: function(element, doneFn) {
-      // jQuery(element).addClass('slideInRight').addClass('animated');
-      jQuery(element).addClass('fadeIn').addClass('animated');
-      // remember to call doneFn so that angular
-      // knows that the animation has concluded
-    },
 
-    move: function(element, doneFn) {
-      jQuery(element).removeClass('fadeIn').addClass('fadeOut').addClass('animated');
-    },
-
-    leave: function(element, doneFn) {
-     jQuery(element).addClass('fadeOut');
-     $timeout(function(){
-        jQuery(element).css({'margin-left':'0'});
-        jQuery(element).remove();
-    },700);
-    }
-  }
-});
 var slides=[
 {image:'img/logo.png',active:false},
 {image:'img/logo-s.png',active:false},

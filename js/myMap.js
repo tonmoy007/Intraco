@@ -8,7 +8,7 @@ var plotMap= function () {
         mapTypeIds: ['Styled']
     },
         center: myCenter,
-        zoom: 10,
+        zoom: 13,
         disableDefaultUI: true,
         mapTypeId: 'Styled'
     };

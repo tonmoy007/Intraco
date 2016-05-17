@@ -32,14 +32,16 @@
     <script src="http://vjs.zencdn.net/5.9.2/video.js"></script>
         
 </head>
-<body ng-app="homeApp" ng-controller="homeCtrl">
+<body ng-app="homeApp" ng-controller="homeCtrl" >
+<loading></loading>
+<div class="site" ng-show="siteLoaded" ng-init="siteLoaded=false">
 <div class="header" id="header">
        <div class="head container">
            <div class="logo bounceIn wow">
-               <a href=""><img class="img-responsive" src="img/logo-high.png" alt="">
+               <a href="#/"><img class="img-responsive" ng-src="img/logo-high.png" alt="">
            </a>
            </div>
-           <loading></loading>
+           
         <div class="navi fixed cool-shadow">
             <navigation ></navigation>
         </div>
@@ -49,45 +51,49 @@
        </div>
        
 </div>
-<div class="main-div">
-    <div class="container " ng-show="sliderShow">
-        <section class="slide-section" >
-            <slider ></slider>
-        </section>
-        
-        <section class="bussiness-segments">
-            <bussiness-segments></bussiness-segments>
-        </section>
-        
-        <section class="video-section" >
-            <intraco-video ></intraco-video>
-        </section>
-        
-        <section class="feed wow fadeIn">
-            <div class="row">
-                <div class="col-md-6">
-                    <news-feed></news-feed>
-                </div>
-                <div class="col-md-6">
-                    <speech></speech> 
-                </div>
-            </div>
-               
-        </section>
-        
+    <div class="main-div">
 
-        
+        <div class="container " ng-show="sliderShow">
+            <section class="slide-section" >
+                <slider ></slider>
+            </section>
+            
+            <section class="bussiness-segments">
+                <bussiness-segments></bussiness-segments>
+            </section>
+            
+            <section class="video-section" >
+                <intraco-video ></intraco-video>
+            </section>
+            
+            <section class="feed wow fadeIn">
+                <div class="row">
+                    <div class="col-md-6">
+                        <news-feed></news-feed>
+                    </div>
+                    <div class="col-md-6">
+                        <speech></speech> 
+                    </div>
+                </div>
+                   
+            </section>
+            
 
-    </div>
-    <section class="contact">
+            
+
+        </div>
+        <section class="contact">
             <div class="container">
                 <contact></contact>
             </div>
         </section>
 
-</div>
-<div class="footer" ng-show="footShow">
-    <intraco-footer></intraco-footer>
+    </div>
+
+    <div class="footer" ng-show="footShow">
+        <intraco-footer></intraco-footer>
+    </div>
+
 </div>
 </body>
 </html>

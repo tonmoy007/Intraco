@@ -743,6 +743,11 @@ video {
 .spinner{
     font-size: 3em;
     color: #0077bb;
+    display: inline-block;
+    line-height: 100vh;
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
 }
 
 
