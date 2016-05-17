@@ -8,15 +8,15 @@
     <carousel id="carousel" interval="myInterval">
           <slide class="slide" ng-repeat="(key,slide) in mySlide"   >
             
-              <img ng-src="{{slide.image}}" class=" top img-responsive">
+              <img ng-src="{{slide.image1}}" class=" top img-responsive">
               <div class="slider-overlay"> <a href="{{slide.href}}"><i class="fa fa-search"></i></a></div>
               <div class="description">
-                  <h1 class="desc-head">Butterfly Garden</h1>
+                  <h1 class="desc-head">{{slide.title}}</h1>
                   <p class="lead module pfade">
                       In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Etiam iaculis nunc ac metus. Quisque malesuada placerat nisl.
                   </p>
               </div>
-              <img ng-src="{{slide.image}}" class=" bottom img-responsive">
+              <img ng-src="{{slide.image2}}" class=" bottom img-responsive">
           </slide>
     </carousel>
     <div class="nav-circlepop">

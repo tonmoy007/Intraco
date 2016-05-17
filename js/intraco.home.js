@@ -29,7 +29,7 @@ app.controller('homeCtrl',function($scope,$http,$timeout,$interval){
                 $scope.siteLoaded=true;
                 $scope.loading=false;
                 new WOW().init();
-            },600)
+            },1000)
             
              //console.log(interval);
         
@@ -242,17 +242,17 @@ app.directive('intracoFooter',function(){
 });
 
 var slides=[
-{image:'img/logo.png',active:false},
-{image:'img/logo-s.png',active:false},
-{image:'img/logo.png',active:false},
-{image:'img/texture-1.jpg',active:false},
-{image:'img/texture-2.png',active:false},
-{image:'img/texture-3.jpg',active:false},
-{image:'img/texture-4.jpg',active:false},
-{image:'img/texture-5.jpg',active:false},
-{image:'img/texture-6.jpg',active:false},
-{image:'img/logo.png',active:false},
-{image:'img/logo.png',active:false},
-{image:'img/logo.png',active:false}
+{image1:'img/business-segments/properties1.jpg',image2:'img/business-segments/properties2.jpg',title:'Intraco Properties Limited'},
+{image1:'img/business-segments/agrabad1.jpg',image2:'img/business-segments/agrabad2.jpg',title:'Hotel Agrabad, Chittagong'},
+{image1:'img/business-segments/butterfly.jpg',image2:'img/business-segments/butterfly2.jpg',title:'Intraco Butterfly Park Limited'},
+{image1:'img/business-segments/cng1.jpg',image2:'img/business-segments/cng2.jpg',title:'Intraco CNG Limited'},
+{image1:'img/business-segments/refueling1.jpg',image2:'img/business-segments/refueling2.jpg',title:'Intraco Refueling Stations Limited'},
+{image1:'img/business-segments/energy1.jpg',image2:'img/business-segments/energy2.jpg',title:'Intraco Energy Limited'},
+{image1:'img/business-segments/coconut1.jpg',image2:'img/business-segments/coconut2.jpg',title:'Intraco Coconut Park, Coxs Bazar'},
+{image1:'img/business-segments/merine1.jpg',image2:'img/business-segments/merine2.jpg',title:'Intraco Marine Division'},
+{image1:'img/business-segments/readymix1.jpg',image2:'img/business-segments/readymix2.jpg',title:'Intraco Ready-mix Co. Limited'},
+{image1:'img/business-segments/agro1.jpg',image2:'img/business-segments/agro2.jpg',title:'Intraco Agro-Products Ltd.'},
+{image1:'img/business-segments/ultrapharma1.jpg',image2:'img/business-segments/ultrapharma2.jpg',title:'Intraco Ultra Pharma Limited'},
+{image1:'img/business-segments/telecom1.jpg',image2:'img/business-segments/telecom2.jpg',title:'Intraco Telecom Ltd'}
 
 ];
